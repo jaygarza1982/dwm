@@ -9,10 +9,10 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
+static const char col_gray2[]       = "#1d2722";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#2a9d8f";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -62,6 +62,7 @@ static const char *termcmd[]  = { "gnome-terminal", NULL };
 static const char *fileManagerCmd[]  = { "nemo", NULL };
 static const char *webBrowserCmd[]  = { "google-chrome", NULL };
 static const char *webBrowserPrivateCmd[]  = { "google-chrome", "-incognito", NULL };
+static const char *lockCmd[]  = { "/usr/bin/i3lock", "-i", "/home/jake/Documents/bg.png", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -70,6 +71,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_e,      spawn,          {.v = fileManagerCmd } },
 	{ MODKEY,                       XK_g,      spawn,          {.v = webBrowserCmd } },
 	{ MODKEY|ShiftMask,             XK_g,      spawn,          {.v = webBrowserPrivateCmd } },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockCmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
